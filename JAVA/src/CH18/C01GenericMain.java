@@ -10,18 +10,21 @@ class 야채 extends 재료{
 		return "야채 []";
 	}
 }
+
 class 팥 extends 재료{
 	@Override
 	public String toString() {
 		return "팥 []";
 	}	
 }
+
 class 슈크림 extends 재료{
 	@Override
 	public String toString() {
 		return "슈크림 []";
 	}
 }
+
 class 피자 extends 재료{
 	@Override
 	public String toString() {
@@ -35,6 +38,7 @@ class 민초{
 		return "민트초코 []";
 	}
 }
+
 class 호빵<T extends 재료>{
 	private T material;
 	호빵(T material){
@@ -45,7 +49,6 @@ class 호빵<T extends 재료>{
 		return "호빵 [material=" + material + "]";
 	}
 }
-
 
 public class C01GenericMain {
 
