@@ -10,6 +10,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
+import java.io.Writer;
 import java.util.UUID;
 
 import javax.swing.JButton;
@@ -20,7 +21,13 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+
+
+
 class GUI extends JFrame implements ActionListener,KeyListener{
+	
+	private static  final String DIR = "C:\\TMP_IO\\";
+	
 	JButton btn1;
 	JButton btn2;
 	JTextField txt1;
@@ -83,50 +90,54 @@ class GUI extends JFrame implements ActionListener,KeyListener{
 		if(e.getSource()==btn1)	//저장하기(FileWriter) 
 		{
 			System.out.println("저장하기 CLICKED");
-			
 			try {
 				
-				String contents = area1.getText();
-				String dirPath = "c:\\tmp_io\\";
 				String filename = UUID.randomUUID().toString();
-				FileWriter out =new FileWriter(dirPath+filename+".txt");
+				Writer out = new FileWriter(DIR+filename+".txt");
+				String contents = area1.getText();
 				out.write(contents);
 				out.flush();
 				out.close();
 				
+				
+				
 			} catch (IOException e1) {
-				// TODO Auto-generated catch block
+				
 				e1.printStackTrace();
 			}
+
 		}
 		else if(e.getSource()==btn2)//불러오기(FileReader) 
 		{
 			System.out.println("불러오기 CLICKED");
 			JFileChooser fileChooser = new JFileChooser();
-			File defaultDirPath = new File("c:\\tmp_io");
+			File defaultDirPath = new File(DIR);
 			fileChooser.setCurrentDirectory(defaultDirPath);
-			int returnVal = fileChooser.showOpenDialog(null);
-			if(returnVal==JFileChooser.APPROVE_OPTION) //파일 선택을 했다면
-			{
-				 String filename=fileChooser.getSelectedFile().toString();
-				 System.out.println("selected Filename : " + filename);
-				 try {
+			int val = fileChooser.showOpenDialog(null);
+			if(val==JFileChooser.APPROVE_OPTION) {
+				
+				String filename=fileChooser.getSelectedFile().toString();
+				System.out.println("SELECTED FILENAME : "+filename);
+				
+				try {
 					Reader in = new FileReader(filename);
 					StringBuffer buffer = new StringBuffer();
 					while(true) {
-						int data = in.read();
+						int data =in.read();
 						if(data==-1)
 							break;
-						buffer.append((char)data);		
+						buffer.append((char)data);
 					}
 					area1.setText("");
 					area1.append(buffer.toString());
-				 
-				 } catch (Exception e1) {
+					
+				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
-				 }
+				}
+				
 			}
+			
 		}
 
 		
