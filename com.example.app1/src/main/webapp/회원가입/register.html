@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입</title>
+</head>
+<body>
+    <form action="">
+
+        <div class="Main-topBox">
+            <div class="headerBox">
+                <h1>회원가입</h1>
+                <h3>정보입력</h3>
+                <p>회원가입에 필요한 정보를 입력하세요</p>
+            </div>
+
+            <div class="MainBox">
+                <div class="IdBox">
+                    <label for="userid">아이디</label>
+                    <br>
+                    <input type="text" name="userid" id="userid" />
+                    <button type="button">중복확인</button>
+                </div>
+                <br>
+
+                <div class="PwBox">
+                    <label for="password">비밀번호</label>
+                    <br>
+                    <input type="password" name="password" id="password" />
+                </div>
+                <br>
+
+                <div class="RePwBox">
+                    <label for="repassword">비밀번호 확인</label>
+                    <br>
+                    <input type="password" name="repassword" id="repassword" />
+                </div>
+                <br>
+
+                <div class="YourName">
+                    <label for="username">이름</label>
+                    <br>
+                    <input type="text" name="username" id="username" />
+                </div>
+                <br>
+
+                <div class="Email">
+                    <label for="useremail">이메일</label>
+                    <br>
+                    <input type="text" name="useremail" id="useremail" />@
+                    <input type="text" placeholder="이메일" />
+                </div>
+                <br>
+
+                <div class="Adrr">
+                    <label for="useradrr">주소</label>
+                    <br>
+                    <input type="search" name="useradrr" id="useradrr" />
+                    <button type="button">주소검색</button>
+                    <br>
+                    <input type="text" name="additionalAddress" placeholder="나머지 주소" />
+                </div>
+                <br>
+
+                <div class="ponnumber">
+                    <label for="fst">휴대폰번호</label>
+                    <br>
+                    <input type="tel" name="fst" id="fst" required pattern="[0-9]{3}"/>
+                    <input type="tel" name="fst" required pattern="[0-9]{3,4}[0-9]{4}"/>
+                    <button type="button">인증번호 전송</button>
+                    <br>
+                    <input type="text" name="renumber" />
+                    <button type="button">인증번호 확인</button>
+                </div>
+                <br>
+
+                <div class="Footer" style="height:100px; display: flex; justify-content: center; align-items: center;">
+                    <button type="submit" value="회원가입" style="background-color: lightcoral; width: 100px; height: 40px;">회원가입</button>
+                </div>
+                <br>
+
+            </div>
+        </div>
+    </form>
+</body>
+</html>
+
+
